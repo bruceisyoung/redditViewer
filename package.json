@@ -1,0 +1,23 @@
+{
+  "name": "redditviewer",
+  "version": "1.0.0",
+  "description": "an awesome reddit viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruceisyoung/redditViewer.git"
+  },
+  "keywords": [
+    "react",
+    "reddit"
+  ],
+  "author": "sheng (bruce)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bruceisyoung/redditViewer/issues"
+  },
+  "homepage": "https://github.com/bruceisyoung/redditViewer#readme"
+}
