@@ -16,15 +16,15 @@ export default class SubredditsList extends Component{
         .then(res => this.setState({subreddits: res}));
     }
   }
-  
+
   render() {
-    console.log('reddits list: ', this.state.subreddits);
+    console.log(this.state.subreddits);
   	return (
   		<div>
         <p>Popular SubReddits List: </p>
         {
           this.state.subreddits.map(subreddit => 
-            <SubredditsEntry imgSrc={subreddit['icon_img']} title={subreddit.title}/>)
+            <SubredditsEntry imgSrc={subreddit['icon_img']} title={subreddit.title} addOrDel={this.props.addOrDel}/>)
         }
   		</div>
   	);

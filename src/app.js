@@ -21,14 +21,16 @@ export default class App extends Component {
 		}
 	}
 
-	setRootState(attr, value) {
-		switch(attr) {
-			case 'subreddits':
-			  this.setState({subreddits: value});
-			  break;
-			case 'submissions': 
-				this.setState({submissions: value});
+	addOrDelSubreddit(isAdd, title) {
+		var currentSubreddits = this.state.subreddits;
+
+		if (isAdd) {
+			currentSubreddits.push(title);
+		} else {
+			currentSubreddits.splice(currentSubreddits.indexOf(title), 1)
 		}
+
+		this.setState({subreddits: currentSubreddits});
 	}
 
 	componentWillMount() {
@@ -36,7 +38,7 @@ export default class App extends Component {
 		
 		if (this.state.subreddits.length === 0) {
 			r.getHot()
-				.then(post => this.setRootState('submissions', post));
+				.then(post => this.setState({submissions: post}));
 		} else {
 			console.log('it\'s not empty');
 		}
@@ -44,13 +46,20 @@ export default class App extends Component {
 
   render() {
     return (
-    	<div className='row'>
-    		<div className='col-md-9'>
-    			<SubmissionList list={this.state.submissions} setRootState={this.setRootState.bind(this)}/>
-    		</div>
-    		<div className='col-md-3'>
-    			<SubredditsList list={this.state.subreddits} setRootState={this.setRootState.bind(this)}/>
-    		</div>
+    	<div id='container'>
+	    	<div id='listOfAdded'>
+	    		{
+	    			this.state.subreddits.map(subreddit => <button>{subreddit}</button>)
+	    		}
+	    	</div>
+	    	<div className='row'>
+	    		<div className='col-md-3'>
+	    			<SubredditsList list={this.state.subreddits} addOrDel={this.addOrDelSubreddit.bind(this)} />
+	    		</div>
+	    		<div className='col-md-9'>
+	    			<SubmissionList list={this.state.submissions} />
+	    		</div>
+	    	</div>
     	</div>
     );
   }

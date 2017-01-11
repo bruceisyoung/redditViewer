@@ -14,7 +14,7 @@ export default class SubmissionList extends Component{
   			{ 
   				this.props.list.map((entry, index) => {
   					var link = 'https://www.reddit.com' + entry.permalink;
-  					return <SubmissionEntry href={link} title={entry.title} />
+  					return <SubmissionEntry href={link} title={entry.title} addOrDel={this.props.addOrDel}/>
   				})
   			}
   		</div>
