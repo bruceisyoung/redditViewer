@@ -1,3 +1,4 @@
+//SubmissionEntry component
 import React, { Component } from 'react' 
 
 export default class SubmissionEntry extends Component{

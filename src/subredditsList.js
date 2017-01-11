@@ -1,3 +1,4 @@
+//subredditsList component
 import React, { Component } from 'react';
 
 import SubredditsEntry from './subredditsEntry';
@@ -18,13 +19,12 @@ export default class SubredditsList extends Component{
   }
 
   render() {
-    console.log(this.state.subreddits);
   	return (
   		<div>
         <p>Popular SubReddits List: </p>
         {
           this.state.subreddits.map(subreddit => 
-            <SubredditsEntry imgSrc={subreddit['icon_img']} title={subreddit.title} addOrDel={this.props.addOrDel}/>)
+            <SubredditsEntry imgSrc={subreddit['icon_img']} title={subreddit.title} url={subreddit.url} addOrDel={this.props.addOrDel}/>)
         }
   		</div>
   	);

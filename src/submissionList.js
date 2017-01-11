@@ -1,3 +1,4 @@
+//submissionList component
 import React, { Component } from 'react';
 
 import SubmissionEntry from './submissionentry';
@@ -8,7 +9,6 @@ export default class SubmissionList extends Component{
   }
 
   render() {
-    console.log('rendering');
   	return (
   		 <div>
   			{ 

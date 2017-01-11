@@ -1,3 +1,4 @@
+//subredditsEntry component
 import React, { Component } from 'react';
 
 import SubredditsEntry from './subredditsEntry';
@@ -11,11 +12,10 @@ export default class SubredditsList extends Component{
   }
 
   buttonClicked() {
-    console.log(this);
     if (this.state.isAdded) {
       this.props.addOrDel(false, this.props.title);
     } else {
-      this.props.addOrDel(true, this.props.title);
+      this.props.addOrDel(true, [this.props.title, this.props.url]);
     }
     this.setState({isAdded: !this.state.isAdded});
   }
